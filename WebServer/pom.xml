@@ -18,4 +18,26 @@
         <version>0.0.1-SNAPSHOT</version>
      </dependency>
   </dependencies>
+  <build>
+		<resources>
+			<resource>
+				<directory>src/main/resources</directory>
+			</resource>
+			<!-- 拷贝启动配置文件 -->
+			<resource>
+				<directory>src/main/resources/config/</directory>
+				<targetPath>${project.build.directory}/</targetPath>
+			</resource>
+		</resources>
+		<plugins>
+			<plugin>
+				<groupId>org.springframework.boot</groupId>
+				<artifactId>spring-boot-maven-plugin</artifactId>
+			</plugin>
+			<plugin>
+				<groupId>org.apache.maven.plugins</groupId>
+				<artifactId>maven-assembly-plugin</artifactId>
+			</plugin>
+		</plugins>
+	</build>
 </project>

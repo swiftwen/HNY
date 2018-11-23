@@ -9,6 +9,6 @@ import org.springframework.context.annotation.ComponentScan;
 public class WebLauncher{
   public static void main(String[] args) {
 	  System.out.println("Hello, JavaPoet!");
-		SpringApplication.run(WebLauncher.class, args);
+	  SpringApplication.run(WebLauncher.class, args);
   }
 }

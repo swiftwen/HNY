@@ -1,0 +1,41 @@
+<!-- package for zip file -->
+<assembly>
+	<id>bin</id>
+	<includeBaseDirectory>false</includeBaseDirectory>
+	<formats>
+		<format>zip</format>
+	</formats>
+	<fileSets>
+		<!-- <fileSet>
+			<directory>${project.build.directory}/bin</directory>
+			<outputDirectory>/bin</outputDirectory>
+			<includes>
+				<include>*.sh</include>
+			</includes>
+		</fileSet> -->
+		<fileSet>
+			<directory>${project.build.directory}/</directory>
+			<outputDirectory>/</outputDirectory>
+			<!-- make sure the config file you want to package -->
+			<includes>
+				<include>*.properties</include>
+			</includes>
+		</fileSet>
+		<fileSet>
+			<directory>${project.build.directory}/</directory>
+			<outputDirectory>/</outputDirectory>
+			<!-- make sure the config file you want to package -->
+			<includes>
+				<include>*.jar</include>
+			</includes>
+		</fileSet>
+		<fileSet>
+			<directory>${project.build.directory}/</directory>
+			<outputDirectory>/</outputDirectory>
+			<!-- make sure the config file you want to package -->
+			<includes>
+				<include>logback.xml</include>
+			</includes>
+		</fileSet>
+	</fileSets>
+</assembly>
