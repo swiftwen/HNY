@@ -2,20 +2,20 @@
   <modelVersion>4.0.0</modelVersion>
   <parent>
     <groupId>com.wp.hny</groupId>
-    <artifactId>HNY</artifactId>
+    <artifactId>Common-Rpc</artifactId>
     <version>0.0.1-SNAPSHOT</version>
   </parent>
-  <artifactId>WebServer</artifactId>
+  <artifactId>Common-Provider</artifactId>
   <dependencies>
-    <dependency>
+     <dependency>
         <groupId>com.wp.hny</groupId>
         <artifactId>HNY-Base</artifactId>
         <version>0.0.1-SNAPSHOT</version>
      </dependency>
      <dependency>
-        <groupId>com.wp.hny</groupId>
-        <artifactId>Common-Api</artifactId>
-        <version>0.0.1-SNAPSHOT</version>
+       <groupId>com.wp.hny</groupId>
+       <artifactId>Common-Api</artifactId>
+       <version>0.0.1-SNAPSHOT</version>
      </dependency>
   </dependencies>
 </project>
