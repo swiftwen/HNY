@@ -6,6 +6,13 @@
     <version>0.0.1-SNAPSHOT</version>
   </parent>
   <artifactId>Common-Api</artifactId>
+  <dependencies>
+		<dependency>
+			<groupId>com.alibaba</groupId>
+			<artifactId>fastjson</artifactId>
+			<version>1.2.31</version>
+		</dependency>
+	</dependencies>
   <build>
 		<plugins>
 			 <plugin>
