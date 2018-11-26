@@ -3,7 +3,10 @@ package com.wp.hny.crawl.provider;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
 
 /**
- * Hook */
+ * 
+ * @author swiftwen
+ * @date 2018年11月26日 上午10:26:41
+ */
 @SpringBootApplication
-public class CommonProviderHook {
+public class CrawlProviderHook {
 }
