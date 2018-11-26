@@ -13,5 +13,6 @@
   	<module>WebServer</module>
   	<module>Common-Rpc</module>
   	<module>HNY-Base</module>
+  	<module>Crawl-Rpc</module>
   </modules>
 </project>
