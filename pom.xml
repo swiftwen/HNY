@@ -14,5 +14,7 @@
   	<module>Common-Rpc</module>
   	<module>HNY-Base</module>
   	<module>Crawl-Rpc</module>
+  	<module>HNY-Common</module>
+  	<module>Account-Rpc</module>
   </modules>
 </project>
