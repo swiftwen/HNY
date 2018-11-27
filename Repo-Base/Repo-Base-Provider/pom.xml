@@ -1,0 +1,36 @@
+<project xmlns="http://maven.apache.org/POM/4.0.0"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
+	<modelVersion>4.0.0</modelVersion>
+	<parent>
+		<groupId>com.wp.hny</groupId>
+		<artifactId>Repo-Base</artifactId>
+		<version>0.0.1-SNAPSHOT</version>
+	</parent>
+	<artifactId>Repo-Base-Provider</artifactId>
+
+	<dependencies>
+		<dependency>
+			<groupId>com.wp.hny</groupId>
+			<artifactId>HNY-Base</artifactId>
+			<version>0.0.1-SNAPSHOT</version>
+		</dependency>
+		<dependency>
+			<groupId>com.wp.hny</groupId>
+			<artifactId>Repo-Base-Api</artifactId>
+			<version>0.0.1-SNAPSHOT</version>
+		</dependency>
+		<!--代码生成器依赖-->
+        <dependency>
+            <groupId>org.freemarker</groupId>
+            <artifactId>freemarker</artifactId>
+            <scope>test</scope>
+        </dependency>
+        <dependency>
+            <groupId>org.mybatis.generator</groupId>
+            <artifactId>mybatis-generator-core</artifactId>
+            <version>1.3.5</version>
+            <scope>test</scope>
+        </dependency>
+	</dependencies>
+</project>

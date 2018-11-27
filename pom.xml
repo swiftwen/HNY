@@ -1,20 +1,34 @@
-<project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
-  <modelVersion>4.0.0</modelVersion>
-  <groupId>com.wp.hny</groupId>
-  <artifactId>HNY</artifactId>
-  <version>0.0.1-SNAPSHOT</version>
-  <packaging>pom</packaging>
-  <parent>
+<project xmlns="http://maven.apache.org/POM/4.0.0"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
+	<modelVersion>4.0.0</modelVersion>
+	<groupId>com.wp.hny</groupId>
+	<artifactId>HNY</artifactId>
+	<version>0.0.1-SNAPSHOT</version>
+	<packaging>pom</packaging>
+	<parent>
 		<groupId>org.springframework.boot</groupId>
 		<artifactId>spring-boot-starter-parent</artifactId>
 		<version>1.4.1.RELEASE</version>
-  </parent>
-  <modules>
-  	<module>WebServer</module>
-  	<module>Common-Rpc</module>
-  	<module>HNY-Base</module>
-  	<module>Crawl-Rpc</module>
-  	<module>HNY-Common</module>
-  	<module>Account-Rpc</module>
-  </modules>
+	</parent>
+	<!-- 开发者 -->
+	<developers>
+		<developer>
+			<name>wenpeng</name>
+			<email>wenpeng0412@qq.com</email>
+		</developer>
+	</developers>
+	<modules>
+		<module>WebServer</module>
+		<module>Common-Rpc</module>
+		<module>HNY-Base</module>
+		<module>Crawl-Rpc</module>
+		<module>HNY-Common</module>
+		<module>Account-Rpc</module>
+		<module>Repo-Base</module>
+	</modules>
+	<!--配置-->
+    <properties>
+        <java.version>1.8</java.version>
+    </properties>
 </project>

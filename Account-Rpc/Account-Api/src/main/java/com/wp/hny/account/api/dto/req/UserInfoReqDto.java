@@ -17,8 +17,6 @@ public class UserInfoReqDto implements Serializable {
 
 	private String account;
 
-	private Byte cardType;
-
 	private String cardNo;
 
 	private String realName;
@@ -30,8 +28,6 @@ public class UserInfoReqDto implements Serializable {
 	private String email;
 
 	private String pwd;
-
-	private Byte status;
 
 	private Date createTime;
 
@@ -45,13 +41,6 @@ public class UserInfoReqDto implements Serializable {
 		this.account = account;
 	}
 
-	public Byte getCardType() {
-		return cardType;
-	}
-
-	public void setCardType(Byte cardType) {
-		this.cardType = cardType;
-	}
 
 	public String getCardNo() {
 		return cardNo;
@@ -101,13 +90,6 @@ public class UserInfoReqDto implements Serializable {
 		this.pwd = pwd;
 	}
 
-	public Byte getStatus() {
-		return status;
-	}
-
-	public void setStatus(Byte status) {
-		this.status = status;
-	}
 
 	public Date getCreateTime() {
 		return createTime;

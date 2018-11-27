@@ -1,6 +1,7 @@
 package com.wp.hny.account.api.service;
 
 import com.wp.hny.account.api.dto.req.UserInfoReqDto;
+import com.wp.hny.account.api.dto.resp.UserInfoRespDto;
 
 /**
  * 
@@ -20,6 +21,6 @@ public interface AccountService {
      * @param userId
      * @return
      */
-    UserInfoReqDto getUserInfoDetail(long userId);
+    UserInfoRespDto getUserInfoDetail(long id);
     
 }
