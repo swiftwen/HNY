@@ -13,11 +13,15 @@ import com.wp.hny.account.api.dto.resp.UserInfoRespDto;
 import com.wp.hny.hnyCommon.dto.BaseResponse;
 import com.wp.hny.web.service.UserInfoService;
 
+import io.swagger.annotations.Api;
+import io.swagger.annotations.ApiOperation;
+
 /**
  * 用户相关controller
  * @author swiftwen
  * @date 2018年11月27日 下午3:30:55
  */
+@Api(description = "用户接口")
 @RestController
 @RequestMapping("/user")
 public class UserController {
@@ -25,6 +29,7 @@ public class UserController {
 	@Autowired
 	private UserInfoService userInfoService;
 	
+	@ApiOperation(value = "查询用户" ,  notes="查询用户")
 	@RequestMapping(value = "/getUserInfoDetail",method = RequestMethod.POST)
     public BaseResponse<UserInfoRespDto> getUserInfoDetail(HttpServletRequest request, HttpServletResponse response,
     		@RequestParam(required = true) long id) {
