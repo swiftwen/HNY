@@ -21,7 +21,7 @@ import io.swagger.annotations.ApiOperation;
  * @author swiftwen
  * @date 2018年11月27日 下午3:30:55
  */
-@Api(description = "用户接口")
+@Api(tags= {"用户接口"})
 @RestController
 @RequestMapping("/user")
 public class UserController {

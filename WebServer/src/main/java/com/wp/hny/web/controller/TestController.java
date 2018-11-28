@@ -20,14 +20,16 @@ import com.wp.hny.web.service.TestService;
 @RequestMapping("/test")
 public class TestController {
 	
-	@Autowired
-	private TestService testService;
+	//@Autowired
+	//private TestService testService;
 	
 	@RequestMapping(value = "/add",method = RequestMethod.GET)
-    public int say(HttpServletRequest request, HttpServletResponse response,
+    public void say(HttpServletRequest request, HttpServletResponse response,
     		@RequestParam(required = true) int a,@RequestParam(required = true)  int b) {
 		
-		int ans = testService.add(a,b);
-        return ans;
+		//int ans = testService.add(a,b);
+        //return ans;
+		
+		
     }
 }

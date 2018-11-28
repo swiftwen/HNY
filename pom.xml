@@ -26,6 +26,7 @@
 		<module>HNY-Common</module>
 		<module>Account-Rpc</module>
 		<module>Repo-Base</module>
+		<module>HNY-Jobs</module>
 	</modules>
 	<!--配置-->
     <properties>
