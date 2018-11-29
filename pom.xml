@@ -31,5 +31,8 @@
 	<!--配置-->
     <properties>
         <java.version>1.8</java.version>
+        <!--添加如下两行代码指定Thymeleaf标签的版本-->
+        <!-- <thymeleaf.version>3.0.2.RELEASE</thymeleaf.version>
+        <thymeleaf-layout-dialect.version>2.0.5</thymeleaf-layout-dialect.version> -->
     </properties>
 </project>
