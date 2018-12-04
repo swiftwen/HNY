@@ -2,38 +2,28 @@
   <modelVersion>4.0.0</modelVersion>
   <parent>
     <groupId>com.wp.hny</groupId>
-    <artifactId>HNY</artifactId>
+    <artifactId>Task-Rpc</artifactId>
     <version>0.0.1-SNAPSHOT</version>
   </parent>
-  <artifactId>WebServer</artifactId>
-  <dependencies>
-    <dependency>
+  <artifactId>Task-Provider</artifactId>
+   <dependencies>
+     <dependency>
         <groupId>com.wp.hny</groupId>
         <artifactId>HNY-Base</artifactId>
         <version>0.0.1-SNAPSHOT</version>
      </dependency>
-     <dependency>
-			<groupId>com.wp.hny</groupId>
-			<artifactId>HNY-Common</artifactId>
-			<version>0.0.1-SNAPSHOT</version>
-		</dependency>
-     <dependency>
+      <dependency>
         <groupId>com.wp.hny</groupId>
-        <artifactId>Common-Api</artifactId>
+        <artifactId>Repo-Base-Provider</artifactId>
         <version>0.0.1-SNAPSHOT</version>
-     </dependency>
-     <dependency>
-        <groupId>com.wp.hny</groupId>
-        <artifactId>Account-Api</artifactId>
-        <version>0.0.1-SNAPSHOT</version>
-     </dependency>
+     </dependency> 
      <dependency>
         <groupId>com.wp.hny</groupId>
         <artifactId>Task-Api</artifactId>
         <version>0.0.1-SNAPSHOT</version>
      </dependency>
   </dependencies>
-  <build>
+   <build>
 		<plugins>
 			 <plugin>
                 <groupId>org.apache.maven.plugins</groupId>

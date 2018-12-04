@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+<meta charset="UTF-8">
+<title>微信投票</title>
+<link th:href="@{/css/wx.css}" rel="stylesheet" type="text/css" />
+</head>
+<body bgcolor="white">
+	<div class="wx_vote">
+		<p>微信->文章点赞</p>	
+	</div>
+	<div class="wx_vote">
+	    <input type="text" value="订单号"  placeholder="订单号" />&nbsp;&nbsp;
+	    <input type="button" value="查询" />&nbsp;&nbsp;
+	    <input type="button" value="创建新任务" />
+	</div>
+	<div class="wx_vote">
+		<table style="WIDTH:100%; BORDER-COLLAPSE: collapse" cellSpacing="0" rules="all" border="1" class="tb_datalist">
+			<tr>
+				<th class="td_title">任务名称</th>
+				<th class="td_title">数量</th>
+				<th class="td_title">链接地址</th>
+				<th class="td_title">备注</th>
+				<th class="td_title">创建时间</th>
+			</tr>
+			<tr th:each="task,taskStat : ${list}">
+				<td th:text="${task.title}">task.title</td>
+				<td th:text="${task.cnt}">${task.cnt}</td>
+				<td th:text="${task.url}">yes</td>
+				<th th:text="${task.remark}">状态变量：index</th>
+				<th th:text="${#dates.format(task.createTime, 'yyyy-MM-dd HH:mm:ss')}">状态变量：count</th>
+			</tr>
+		</table>
+	</div>
+
+
+</body>
+</html>

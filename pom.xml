@@ -27,6 +27,7 @@
 		<module>Account-Rpc</module>
 		<module>Repo-Base</module>
 		<module>HNY-Jobs</module>
+		<module>Task-Rpc</module>
 	</modules>
 	<!--配置-->
     <properties>
