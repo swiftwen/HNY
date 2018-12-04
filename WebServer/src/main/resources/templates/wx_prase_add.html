@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+<meta charset="utf-8" />
+    <title>文章点赞新增任务</title>
+</head>
+<body>
+   <div class="wx_prase">
+		<p>微信->文章点赞->新增任务</p>	
+		<p>感谢您选择我们平台！为了给您更好的体验，如您在使用中遇到任何问题，请联系我们邮箱wenpeng0412@qq.com</p>
+	</div>
+   <div >
+      <form th:action="@{/wx_task/addWxPraseTask}" th:object="${addWxTaskReqDto}" th:method="post">
+         <table>
+         <tr>
+            <td>任务标题：<input type="text" th:field="*{title}" placeholder="任务标题" /></td>
+         </tr>
+         <tr>
+            <td>点赞数量：<input type="text" th:field="*{cnt}" placeholder="点赞数量" /></td>
+         </tr>
+         <tr>
+            <td>链接地址：<input type="text" th:field="*{url}" placeholder="链接地址" /></td>
+         </tr>
+         <tr>
+            <td>备注：<input type="text" th:field="*{remark}" placeholder="备注" /></td>
+         </tr>
+         <tr>
+            <td><input type="submit" placeholder="提交" /></td>
+         </tr>
+      </table>
+      </form>
+      
+   </div>
+	
+</body>
+</html>
+
+

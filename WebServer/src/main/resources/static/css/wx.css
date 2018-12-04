@@ -7,6 +7,7 @@ li{list-style:none}
 a{text-decoration:none;}
 /* 以上实际使用若已初始化可删除 */
 .wx_vote{margin-bottom: 5px;}
+.wx_follow{margin-bottom: 5px;}
 
 .tb_datalist {
 	BORDER-RIGHT: #bad6ec 1px; BORDER-TOP: #bad6ec 1px; BORDER-LEFT: #bad6ec 1px;  BORDER-BOTTOM: #bad6ec 1px; 	

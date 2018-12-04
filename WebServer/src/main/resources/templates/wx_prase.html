@@ -6,15 +6,16 @@
 <link th:href="@{/css/wx.css}" rel="stylesheet" type="text/css" />
 </head>
 <body bgcolor="white">
-	<div class="wx_vote">
+	<div class="wx_prase">
 		<p>微信->文章点赞</p>	
 	</div>
-	<div class="wx_vote">
+	<div class="wx_prase">
 	    <input type="text" placeholder="订单号" />&nbsp;&nbsp;
 	    <input type="button" value="查询" />&nbsp;&nbsp;
-	    <input type="button" value="创建新任务" />
+	    <a href="entryAddWxPraseTask"><input type="button" value="创建新任务"  /></a>
+	    
 	</div>
-	<div class="wx_vote">
+	<div class="wx_prase">
 		<table style="WIDTH:100%; BORDER-COLLAPSE: collapse" cellSpacing="0" rules="all" border="1" class="tb_datalist">
 			<tr>
 				<th class="td_title">任务名称</th>
@@ -34,5 +35,16 @@
 	</div>
 
 
+
 </body>
+<script type="text/javascript">
+ function add_wx_prase(){
+	 var httpRequest = new XMLHttpRequest();//第一步：建立所需的对象
+     httpRequest.open('GET', '/wx_task/', true);//第二步：打开连接  将请求参数写在url中  ps:"./Ptest.php?name=test&nameone=testone"
+     httpRequest.send();//第三步：发送请求  将请求参数写在URL中
+    
+ }
+
+
+</script>
 </html>

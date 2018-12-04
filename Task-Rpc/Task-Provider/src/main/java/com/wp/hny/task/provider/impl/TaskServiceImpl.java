@@ -9,6 +9,7 @@ import org.springframework.beans.BeanUtils;
 import org.springframework.stereotype.Service;
 
 import com.wp.hny.repo.provider.AbstractService;
+import com.wp.hny.task.api.dto.req.AddWxTaskReqDto;
 import com.wp.hny.task.api.dto.resp.TaskInfoRespDto;
 import com.wp.hny.task.api.service.TaskService;
 import com.wp.hny.task.provider.dao.TaskInfoMapper;
@@ -40,5 +41,18 @@ public class TaskServiceImpl extends AbstractService<TaskInfo> implements TaskSe
 		}
 		return list;
 	}
+
+	@Override
+	public boolean addWxTaskInfo(AddWxTaskReqDto reqDto) {
+		TaskInfo record = new TaskInfo();
+		try {
+			BeanUtils.copyProperties(reqDto, record);
+			taskInfoMapper.insertSelective(record);
+		}catch(Exception e) {
+			return false;
+		}
+		return true;
+	}
+	
 	
 }

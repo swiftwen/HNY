@@ -4,14 +4,17 @@ import java.util.List;
 
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
+import javax.validation.Valid;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
+import org.springframework.validation.BindingResult;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 
 import com.wp.hny.base.constants.TaskInfoType;
+import com.wp.hny.task.api.dto.req.AddWxTaskReqDto;
 import com.wp.hny.task.api.dto.resp.TaskInfoRespDto;
 import com.wp.hny.task.api.service.TaskService;
 
@@ -49,6 +52,24 @@ public class WxTaskController {
 		model.addAttribute("list", list);
         return "wx_prase";
     }
+	
+	@ApiOperation(value = "进入新增点赞任务" ,  notes="进入新增点赞任务")
+	@RequestMapping(value = "/entryAddWxPraseTask",method = RequestMethod.GET)
+    public String entryAddWxPraseTask(HttpServletRequest request, HttpServletResponse response, Model model) {
+		model.addAttribute("addWxTaskReqDto", new AddWxTaskReqDto());
+        return "wx_prase_add";
+    }
+	
+	@ApiOperation(value = "新增点赞任务" ,  notes="新增点赞任务")
+	@RequestMapping(value = "/addWxPraseTask",method = RequestMethod.POST)
+    public String addWxPraseTask(HttpServletRequest request, HttpServletResponse response, Model model,
+    		@Valid AddWxTaskReqDto addWxTaskReqDto, BindingResult result) {
+		
+		addWxTaskReqDto.setType(TaskInfoType.WX_PRASE);
+		taskService.addWxTaskInfo(addWxTaskReqDto);
+        return wxPraseTaskInfoList(request, response, model);
+    }
+	
 	
 	@ApiOperation(value = "查询关注任务" ,  notes="查询关注任务")
 	@RequestMapping(value = "/wxFollowTaskInfoList",method = RequestMethod.GET)

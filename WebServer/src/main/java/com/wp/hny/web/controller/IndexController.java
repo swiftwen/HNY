@@ -18,9 +18,11 @@ public class IndexController {
 	
 	
 	@RequestMapping(value = "/homepage",method = RequestMethod.GET)
-    public String say(HttpServletRequest request, HttpServletResponse response)throws Exception {
-		
+    public String homepage(HttpServletRequest request, HttpServletResponse response)throws Exception {
 		return "index";
     }
-	
+	@RequestMapping(value = "/welcome",method = RequestMethod.GET)
+    public String welcome(HttpServletRequest request, HttpServletResponse response)throws Exception {
+		return "welcome";
+    }
 }

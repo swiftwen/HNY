@@ -4,59 +4,12 @@
 <meta charset="utf-8" />
     <title>hny</title>
 	
-    <!-- <link rel="stylesheet" type="text/css" href="css/nav.css">
-    <link rel="stylesheet" type="text/css" href="font/iconfont.css"> -->
-    
-    <link th:href="@{/css/nav.css}" rel="stylesheet" type="text/css" />
-    <link th:href="@{/font/iconfont.css}" rel="stylesheet" type="text/css" />
-	
-    <!-- <script type="text/javascript" src="script/jquery.min.js"></script>
-    <script type="text/javascript" src="script/nav.js"></script> -->
-    
-    
-    <script type="text/javascript"   th:src="@{/script/jquery.min.js}"></script>
-    <script type="text/javascript"   th:src="@{/script/nav.js}"></script>
-	
 </head>
 <body>
-   <div class="top"> 
-      <h1 align="center" style="margin:0">toptoptoptop</h1>
+   
+   <div>
+      <h1 align="center" style="color:blue;">欢迎来到HNY！</h1>
    </div>
-    <div class="nav">
-        <div class="nav-top">
-            <div id="mini" style="border-bottom:1px solid rgba(255,255,255,.1)"><img src="images/mini.png" ></div>
-        </div>
-        <ul>
-            <li class="nav-item">
-                <a href="javascript:;"><i class="my-icon nav-icon icon_1"></i><span>微信任务</span><i class="my-icon nav-more"></i></a>
-                <ul>
-                    <li><a href="wx_task/wxPraseTaskInfoList"  target="targetText"><span>文章点赞</span></a></li>
-                    <li><a href="wx_task/wxVoteTaskInfoList"  target="targetText"><span>投票任务</span></a></li>
-                    <li><a href="wx_task/wxFollowTaskInfoList" target="targetText"><span>普通关注</span></a></li>
-                    <li><a href="wx_task/wxCommentTaskInfoList" target="targetText"><span>文章评论</span></a></li>
-                </ul>
-            </li>
-            <li class="nav-item">
-                <a href="javascript:;"><i class="my-icon nav-icon icon_2"></i><span>微博任务</span><i class="my-icon nav-more"></i></a>
-                <ul>
-                    <li><a href="javascript:;"><span>微博粉丝</span></a></li>
-                    <li><a href="javascript:;"><span>微博点赞</span></a></li>
-                    <li><a href="javascript:;"><span>微博评论</span></a></li>
-                </ul>
-            </li>
-            <li class="nav-item">
-                <a href="javascript:;"><i class="my-icon nav-icon icon_3"></i><span>开放任务</span><i class="my-icon nav-more"></i></a>
-                <ul>
-                    <li><a href="javascript:;"><span>卡密兑换</span></a></li>
-                    <li><a href="javascript:;"><span>银行积分</span></a></li>
-                    <li><a href="javascript:;"><span>星巴克</span></a></li>
-                </ul>
-            </li>
-        </ul>
-    </div>
-    <div class="main_cont">
-        <iframe src="wx_task/wxPraseTaskInfoList" height="100%" width="100%" name="targetText" ></iframe>
-    </div>
 	
 </body>
 </html>

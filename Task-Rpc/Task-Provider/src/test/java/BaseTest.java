@@ -15,7 +15,7 @@ import com.wp.hny.task.provider.TaskProviderLauncher;
 @RunWith(SpringRunner.class)
 @SpringBootTest(classes = TaskProviderLauncher.class)
 @Transactional
-@Rollback
+@Rollback(value=false)
 public abstract class BaseTest {
 
   
