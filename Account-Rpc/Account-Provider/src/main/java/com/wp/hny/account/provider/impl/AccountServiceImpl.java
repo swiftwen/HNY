@@ -41,4 +41,30 @@ public class AccountServiceImpl extends AbstractService<UserInfo> implements Acc
 		return resp;
 	}
 
+	@Override
+	public UserInfoRespDto getUserInfoByAccount(String account) {
+		UserInfoRespDto userInfoRespDto = new UserInfoRespDto();
+		UserInfo record = new UserInfo();
+	    record.setAccount(account);
+		try {
+			UserInfo userInfo = userInfoMapper.selectOne(record);
+			BeanUtils.copyProperties(userInfo, userInfoRespDto);
+		}catch(Exception e) {
+			return null;
+		}
+		return userInfoRespDto;
+	}
+
+	@Override
+	public String getPwdByAccount(String account) {
+		UserInfo record = new UserInfo();
+	    record.setAccount(account);
+		try {
+			UserInfo userInfo = userInfoMapper.selectOne(record);
+			return userInfo.getPasswd();
+		}catch(Exception e) {
+			return null;
+		}
+	}
+
 }

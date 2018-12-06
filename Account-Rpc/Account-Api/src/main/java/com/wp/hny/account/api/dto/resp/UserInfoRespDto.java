@@ -15,6 +15,8 @@ public class UserInfoRespDto implements Serializable {
 	 */
 	private static final long serialVersionUID = 1L;
 
+	private Long id;
+	
 	private String account;
 
 	private String cardNo;
@@ -27,11 +29,18 @@ public class UserInfoRespDto implements Serializable {
 
 	private String email;
 
-	private String pwd;
-
 	private Date createTime;
 
 	private Date updateTime;
+	
+	public Long getId() {
+		return id;
+	}
+
+	
+	public void setId(Long id) {
+		this.id = id;
+	}
 
 	public String getAccount() {
 		return account;
@@ -82,14 +91,6 @@ public class UserInfoRespDto implements Serializable {
 		this.email = email;
 	}
 
-	public String getPwd() {
-		return pwd;
-	}
-
-	public void setPwd(String pwd) {
-		this.pwd = pwd;
-	}
-
 
 	public Date getCreateTime() {
 		return createTime;
@@ -107,12 +108,4 @@ public class UserInfoRespDto implements Serializable {
 		this.updateTime = updateTime;
 	}
 
-	@Override
-	public String toString() {
-		return "UserInfoRespDto [account=" + account + ", cardNo=" + cardNo + ", realName=" + realName + ", gender="
-				+ gender + ", mobile=" + mobile + ", email=" + email + ", pwd=" + pwd + ", createTime=" + createTime
-				+ ", updateTime=" + updateTime + "]";
-	}
-	
-	
 }

@@ -4,24 +4,18 @@
 <meta charset="utf-8" />
     <title>hny</title>
 	
-    <!-- <link rel="stylesheet" type="text/css" href="css/nav.css">
-    <link rel="stylesheet" type="text/css" href="font/iconfont.css"> -->
-    
     <link th:href="@{/css/nav.css}" rel="stylesheet" type="text/css" />
     <link th:href="@{/font/iconfont.css}" rel="stylesheet" type="text/css" />
 	
-    <!-- <script type="text/javascript" src="script/jquery.min.js"></script>
-    <script type="text/javascript" src="script/nav.js"></script> -->
-    
-    
     <script type="text/javascript"   th:src="@{/script/jquery.min.js}"></script>
     <script type="text/javascript"   th:src="@{/script/nav.js}"></script>
 	
 </head>
 <body>
    <div class="top"> 
-      <h1 align="center" style="margin:0">toptoptoptop</h1>
+     用户名：<span th:text="${a}"><input type="button" onclick="logout()" value="退出" id="logout" /></span>
    </div>
+<!--    用户名：${userInfo.account}  -->
     <div class="nav">
         <div class="nav-top">
             <div id="mini" style="border-bottom:1px solid rgba(255,255,255,.1)"><img src="images/mini.png" ></div>
@@ -59,6 +53,11 @@
     </div>
 	
 </body>
+<script type="text/javascript">
+    function logout(){
+    	location.href = "logout";
+    }
+</script>
 </html>
 
 

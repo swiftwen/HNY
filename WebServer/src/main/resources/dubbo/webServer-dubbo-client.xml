@@ -6,5 +6,7 @@
     <dubbo:reference id="commonService" check="false" interface="com.wp.hny.common.api.service.CommonService" timeout="${dubbo.consumer.timeout}" version="${dubbo.service.provider.version}" />
     <dubbo:reference id="accountService" check="false" interface="com.wp.hny.account.api.service.AccountService" timeout="${dubbo.consumer.timeout}" version="${dubbo.service.provider.version}" />
     <dubbo:reference id="taskService" check="false" interface="com.wp.hny.task.api.service.TaskService" timeout="${dubbo.consumer.timeout}" version="${dubbo.service.provider.version}" />
+    <dubbo:reference id="roleService" check="false" interface="com.wp.hny.account.api.service.RoleService" timeout="${dubbo.consumer.timeout}" version="${dubbo.service.provider.version}" />
+    <dubbo:reference id="permissionService" check="false" interface="com.wp.hny.account.api.service.PermissionService" timeout="${dubbo.consumer.timeout}" version="${dubbo.service.provider.version}" />
 
 </beans>

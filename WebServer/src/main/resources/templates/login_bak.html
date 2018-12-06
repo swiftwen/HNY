@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+<meta charset="UTF-8" />
+
+<title>登录页面</title>
+<script src="http://libs.baidu.com/jquery/2.1.4/jquery.min.js"></script>
+
+</head>
+<script>
+	function sendAjax() {
+		var username = $("#username").val();
+		var password = document.getElementById("password").value;
+		var vcode = document.getElementById("vcode").value;
+		var rememberMe = $('#rememberMe').is(':checked');  
+		//document.getElementById("rememberMe").checked
+		$.ajax({
+			url : "/ajaxLogin",
+			data : {
+				"username" : username,
+				"password" : password,
+				"vcode" : vcode,
+				"rememberMe" : rememberMe
+			},
+			type : "post",
+			dataType : "json",
+			success : function(data) {
+				if (data.status == 200) {
+
+					location.href = "/";
+				} else {
+					$("#erro").html(data.message);
+				}
+
+			},
+			error : function() {
+				$("#erro").html("登录失败");
+			}
+		});
+	}
+	/* function change() {
+		$("#codePic").attr("src", "/getGifCode?flag=" + Math.random());
+	} */
+</script>
+<body>
+	错误信息：
+	<h4 id="erro"></h4>
+	<p>
+		账号：<input type="text" name="username" id="username" value="root" />
+	</p>
+	<p>
+		密码：<input type="text" name="password" id="password" value="root" />
+	</p>
+	<p>
+		验证码：<input type="text" name="vcode" id="vcode" />
+	</p>
+	<!-- <p>
+            <img alt="验证码" id="codePic" src="http://localhost:8080/getGifCode" onclick="change()"></img>
+        </p> -->
+	<P>
+		<input type="checkbox" name="rememberMe" id="rememberMe" />记住我
+	</P>
+	<p>
+		<input type="button" onclick="sendAjax()" value="登录" id="ajaxLogin" />
+	</p>
+
+</body>
+</html>
