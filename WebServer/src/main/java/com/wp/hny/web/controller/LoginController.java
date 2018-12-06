@@ -21,7 +21,7 @@ import org.springframework.web.bind.annotation.ResponseBody;
  * @date 2018年11月23日 下午4:19:07
  */
 @Controller
-public class IndexController {
+public class LoginController {
 	
 	@RequestMapping({"/","/index"})
 	public String index(){
@@ -35,6 +35,16 @@ public class IndexController {
 	@RequestMapping(value="/login",method=RequestMethod.GET)
 	public String login(){
 		return "login";
+	}
+	
+	@RequestMapping(value="/register",method=RequestMethod.GET)
+	public String register(){
+		return "register";
+	}
+	
+	@RequestMapping(value="/forgetPwd",method=RequestMethod.GET)
+	public String forgetPwd(){
+		return "forgetPwd";
 	}
 	
 	@RequestMapping(value = "/welcome",method = RequestMethod.GET)
@@ -91,24 +101,21 @@ public class IndexController {
 		        resultMap.put("message", "验证码错误！");
 		        return resultMap;
 		    }*/
- 
 		    try {
 		        UsernamePasswordToken token = new UsernamePasswordToken(username, password,rememberMe);
 		        SecurityUtils.getSubject().login(token);
 		        resultMap.put("status", 200);
 		        resultMap.put("message", "登录成功");
- 
-		    }/* catch (UnknownAccountException e) {
+		    } catch (UnknownAccountException e) {
 		        resultMap.put("status", 500);
 		        resultMap.put("message", "账号不存在！");
 		    }catch(IncorrectCredentialsException e1){
 		        resultMap.put("status", 500);
 		        resultMap.put("message", "密码错误！");
-		    }*/catch (Exception e) {
+		    }catch (Exception e) {
 		        resultMap.put("status", 500);
 		        resultMap.put("message", "用户名或密码错误");
 			}
-		   
 		    return resultMap;
 		}
 }

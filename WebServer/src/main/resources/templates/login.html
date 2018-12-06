@@ -48,11 +48,12 @@
         </div>
         <div class="form-item"><button id="submit" onclick="sendAjax();">登 录</button></div>
         <div class="reg-bar">
-            <a class="reg" href="javascript:">立即注册</a>
-            <a class="forget" href="javascript:">忘记密码</a>
+            <a class="reg" href="register">立即注册</a>
+            <a class="forget" href="forgetPwd">忘记密码</a>
         </div>
     </div>
-    <script src="http://libs.baidu.com/jquery/2.1.4/jquery.min.js"></script>
+    <!-- <script src="http://libs.baidu.com/jquery/2.1.4/jquery.min.js"></script> -->
+    <script type="text/javascript"   th:src="@{/script/jquery.min.js}"></script>
     <script>
     function sendAjax() {
 		var username = $("#username").val();
