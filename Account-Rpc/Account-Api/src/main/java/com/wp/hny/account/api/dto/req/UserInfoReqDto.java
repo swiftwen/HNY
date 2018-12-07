@@ -1,7 +1,6 @@
 package com.wp.hny.account.api.dto.req;
 
 import java.io.Serializable;
-import java.util.Date;
 
 /**
  * 
@@ -27,11 +26,7 @@ public class UserInfoReqDto implements Serializable {
 
 	private String email;
 
-	private String pwd;
-
-	private Date createTime;
-
-	private Date updateTime;
+	private String passwd;
 
 	public String getAccount() {
 		return account;
@@ -40,7 +35,6 @@ public class UserInfoReqDto implements Serializable {
 	public void setAccount(String account) {
 		this.account = account;
 	}
-
 
 	public String getCardNo() {
 		return cardNo;
@@ -82,28 +76,11 @@ public class UserInfoReqDto implements Serializable {
 		this.email = email;
 	}
 
-	public String getPwd() {
-		return pwd;
+	public String getPasswd() {
+		return passwd;
 	}
 
-	public void setPwd(String pwd) {
-		this.pwd = pwd;
-	}
-
-
-	public Date getCreateTime() {
-		return createTime;
-	}
-
-	public void setCreateTime(Date createTime) {
-		this.createTime = createTime;
-	}
-
-	public Date getUpdateTime() {
-		return updateTime;
-	}
-
-	public void setUpdateTime(Date updateTime) {
-		this.updateTime = updateTime;
+	public void setPasswd(String passwd) {
+		this.passwd = passwd;
 	}
 }

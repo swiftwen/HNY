@@ -1,8 +1,10 @@
 package com.wp.hny.web.service.impl;
 
+import org.springframework.beans.BeanUtils;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
+import com.wp.hny.account.api.dto.req.UserInfoReqDto;
 import com.wp.hny.account.api.dto.resp.UserInfoRespDto;
 import com.wp.hny.account.api.service.AccountService;
 import com.wp.hny.web.service.UserInfoService;
@@ -24,4 +26,11 @@ public class UserInfoServiceImpl implements UserInfoService {
 		UserInfoRespDto userInfo = accountService.getUserInfoDetail(id);
 		return userInfo;
 	}
+
+	@Override
+	public Long createAccount(UserInfoReqDto reqDto) {
+		return accountService.createAccount(reqDto);
+	}
+	
+	
 }

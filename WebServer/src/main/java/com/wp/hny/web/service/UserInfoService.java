@@ -1,5 +1,6 @@
 package com.wp.hny.web.service;
 
+import com.wp.hny.account.api.dto.req.UserInfoReqDto;
 import com.wp.hny.account.api.dto.resp.UserInfoRespDto;
 
 /**
@@ -10,4 +11,10 @@ import com.wp.hny.account.api.dto.resp.UserInfoRespDto;
 public interface UserInfoService {
 	
 	UserInfoRespDto getUserInfoDetail(Long id);
+	/**
+	 * 创建账号
+	 * @param reqDto
+	 * @return
+	 */
+	Long createAccount(UserInfoReqDto reqDto);
 }

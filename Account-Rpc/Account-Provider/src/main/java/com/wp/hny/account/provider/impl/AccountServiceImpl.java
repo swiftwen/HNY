@@ -27,7 +27,7 @@ public class AccountServiceImpl extends AbstractService<UserInfo> implements Acc
 	public Long createAccount(UserInfoReqDto req) {
 		UserInfo userInfo = new UserInfo();
 		BeanUtils.copyProperties(req, userInfo);
-		userInfoMapper.insert(userInfo);
+		userInfoMapper.insertSelective(userInfo);
 		return userInfo.getId();
 	}
 

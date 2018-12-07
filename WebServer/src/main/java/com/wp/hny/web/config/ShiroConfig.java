@@ -43,10 +43,11 @@ public class ShiroConfig {
 		filterChainDefinitionMap.put("/logout", "logout");
 		filterChainDefinitionMap.put("/getGifCode", "anon");
 		filterChainDefinitionMap.put("/ajaxLogin", "anon");
+		filterChainDefinitionMap.put("/register", "anon");
+		filterChainDefinitionMap.put("/ajaxRegister", "anon");
 		filterChainDefinitionMap.put("/assets/**", "anon");
 		filterChainDefinitionMap.put("/css/**", "anon");
 		filterChainDefinitionMap.put("/images/**", "anon");
-		filterChainDefinitionMap.put("/img/**", "anon");
 		filterChainDefinitionMap.put("/script/**", "anon");
 		
 		

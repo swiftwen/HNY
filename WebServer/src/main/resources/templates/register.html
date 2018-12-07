@@ -1,16 +1,109 @@
 <!DOCTYPE html>
 <html xmlns:th="http://www.thymeleaf.org">
 <head>
-<meta charset="utf-8" />
+    <meta charset="UTF-8">
     <title>注册页面</title>
+    <link th:href="@{/css/regist.css}" rel="stylesheet" type="text/css" />
+   <!-- <script type="text/javascript"   th:src="@{/script/jquery.min.js}"></script> -->
 </head>
 <body>
-   
-   <div>
-      <h1 align="center" style="color:blue;">注册</h1>
-   </div>
-	
+    <div class="wrapper">
+        <article>
+            <h1><em>Logo</em><span>xxx</span></h1>
+            <div class="main">
+                <form>
+                        <p style="color:red;" align="center" id="hint" class="hint"></p>
+                        <input type="text" id="username" name="username" placeholder="用户名"><em>由6-20个字符组成！</em>
+                        <input type="text" id="mobile" name="mobile" placeholder="手机号"><em>由11个字符组成！（非必填）</em>
+                        <input type="password" id="pwd" name="pwd" placeholder="密码"><em>6-20个字符</em>
+                        <input type="password" id="pwd2" name="pwd2" placeholder="再次输入密码"><em>6-20个字符</em>
+                    <button type="button" onclick="regist()">注册</button>
+                </form>
+            </div>
+        </article>
+        <div class="hint_div" hidden="true">
+           <p>注册成功，去<a href="login">登录</a></p>
+        </div>
+        <footer style="margin-top:5px">
+            <ul>
+                <li><a href="#">联系我们</a></li>
+                <li><a href="#">关于我们</a></li>
+                <li><a href="#">人才招聘</a></li>
+                <li><a href="#">友情链接</a></li>
+                <li><a href="#">公司地址</a></li>
+                <li><a href="#">关注我们</a></li>
+            </ul>
+            <p>本网站版权归xxx技术有限公司所有</p>
+        </footer>
+    </div>
+    <script src="http://libs.baidu.com/jquery/2.1.4/jquery.min.js"></script>
+    <script>
+    function regist() {
+    	alert("in")
+		var username = $("#username").val();
+		var mobile = $("#mobile").val();
+		var pwd = $("#pwd").val();
+		var pwd2 = $('#pwd2').val(); 
+		if(username == null || username == ''){
+			alert("用户名不能为空");
+			return;
+		}
+		if(username.length < 6 || username.length > 20){
+			alert("用户名长度必须在6到20个字符之间");
+			return;
+		}
+		if(pwd == null || pwd == ''){
+			alert("密码不能为空");
+			return;
+		}
+		if(pwd2 == null || pwd2 == ''){
+			alert("密码不能为空");
+			return;
+		}
+		if(pwd.length < 6 || pwd.length > 20){
+			alert("密码长度必须在6到20个字符之间");
+			return;
+		}
+		if(pwd2.length < 6 || pwd2.length > 20){
+			alert("密码长度必须在6到20个字符之间");
+			return;
+		}
+		if(pwd != pwd2){
+			alert("两次密码不一致，请重新输入");
+			return;
+		}
+		alert("ok")
+		$.ajax({
+			type : "POST",
+			url : "/ajaxRegister",
+			data : {
+				"username" : username,
+				"password" : pwd,
+				"mobile" : mobile
+			},
+			beforeSend : function() {
+			},
+			success : function(data) {
+				alert(data.status)
+				if (data.status == 200) {
+                    //$("#hint_div").show();
+                    alert("注册成功，去登录")
+					location.href = "login";
+				} else {
+					$("#hint").html(data.message);
+				}
+			},
+			complete : function() {
+				
+			},
+			error : function() {
+				alert("error")
+				$("#hint").html("注册失败,,稍后再试");
+			}
+		});
+		return false;
+		
+	}
+    </script>
 </body>
 </html>
-
-
