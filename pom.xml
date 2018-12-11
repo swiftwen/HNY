@@ -28,6 +28,8 @@
 		<module>Repo-Base</module>
 		<module>HNY-Jobs</module>
 		<module>Task-Rpc</module>
+		<module>Act-WorkFlow</module>
+		<module>WorkFlow</module>
 	</modules>
 	<!--配置 -->
 	<properties>
