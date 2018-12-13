@@ -1,8 +1,11 @@
 package com.weiye.workflow.service;
 
-import com.alibaba.dubbo.config.annotation.Service;
+import org.springframework.stereotype.Service;
 
-
+@Service
 public class WorkFlowService  {
 
+	public String getTest() {
+		return "11";
+	}
 }

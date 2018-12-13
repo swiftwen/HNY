@@ -19,8 +19,8 @@ import org.springframework.web.bind.annotation.RestController;
 import org.springframework.web.multipart.MultipartFile;
 
 import com.weiye.annotation.SystemControllerLog;
+import com.weiye.config.ActivitiConfig;
 import com.weiye.properties.ProcessDefine;
-import com.weiye.workflow.service.BaseWorkFlowService;
 import com.weiye.workflow.service.WorkFlowService;
 
 import io.swagger.annotations.Api;
@@ -44,7 +44,8 @@ public class ProcessDefineController {
 	private ProcessDefine processDefine;
 	
 	@Autowired
-	private RepositoryService repositoryService;
+	private  ActivitiConfig activitiConfig;
+	
 	@PostMapping("/deployProcess")
 	@SystemControllerLog(value = "部署流程文件")
 	@ApiOperation(value = "部署流程文件", httpMethod = "POST", notes = "200: 发送成功")
@@ -56,7 +57,7 @@ public class ProcessDefineController {
 		FileUtils.writeByteArrayToFile(uploadFile, file.getBytes());
 		InputStream inputStream = new FileInputStream(uploadFile);
 		//部署流程
-		repositoryService.createDeployment().addInputStream(file.getOriginalFilename(), inputStream);
+		activitiConfig.repositoryService().createDeployment().addInputStream(file.getOriginalFilename(), inputStream).deploy();
 		Map<String, Object> map = new HashMap<String, Object>();
 		map.put("httpCode", "200");
 		return map;

@@ -1,4 +1,4 @@
-package com.weiye.workflow.config;
+package com.weiye.config;
 
 
 import org.springframework.context.annotation.Bean;
