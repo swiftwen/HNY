@@ -2,6 +2,7 @@ package com.weiye.config;
 
 import javax.sql.DataSource;
 
+import org.activiti.engine.IdentityService;
 import org.activiti.engine.ProcessEngine;
 import org.activiti.engine.ProcessEngineConfiguration;
 import org.activiti.engine.RepositoryService;
@@ -58,6 +59,11 @@ public class ActivitiConfig {
         return processEngine().getTaskService();
     }
     
+    @Bean
+    public IdentityService identityService() {
+        return processEngine().getIdentityService();
+    }
+
     /**
      * 部署流程
      * @throws IOException 
