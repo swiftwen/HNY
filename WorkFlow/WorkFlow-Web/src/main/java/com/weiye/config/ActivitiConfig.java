@@ -1,4 +1,4 @@
-package com.weiye.workflow.config;
+package com.weiye.config;
 
 import javax.sql.DataSource;
 
