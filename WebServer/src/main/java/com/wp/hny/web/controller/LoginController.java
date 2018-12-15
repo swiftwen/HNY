@@ -21,11 +21,15 @@ import com.wp.hny.account.api.dto.req.UserInfoReqDto;
 import com.wp.hny.base.util.MD5Utils;
 import com.wp.hny.web.service.UserInfoService;
 
+import io.swagger.annotations.Api;
+import io.swagger.annotations.ApiOperation;
+
 /**
  * 
  * @author swiftwen
  * @date 2018年11月23日 下午4:19:07
  */
+@Api(tags = {"登录相关接口" })
 @Controller
 public class LoginController {
 
@@ -38,7 +42,7 @@ public class LoginController {
 		// Map<String, Object> resultMap = new HashMap<String, Object>();
 		// UserInfoRespDto userInfo = (UserInfoRespDto) subject.getPrincipal();
 		// resultMap.put("userInfo",userInfo);
-		return "/index";
+		return "index";
 	}
 
 	@RequestMapping(value = "/login", method = RequestMethod.GET)
@@ -89,6 +93,7 @@ public class LoginController {
 		return "/login";
 	}
 
+	@ApiOperation(value = "登录", notes = "登录")
 	@RequestMapping(value = "/ajaxLogin", method = RequestMethod.POST)
 	@ResponseBody
 	public Map<String, Object> submitLogin(String username, String password, String vcode, Boolean rememberMe) {
@@ -124,6 +129,7 @@ public class LoginController {
 		return resultMap;
 	}
 
+	@ApiOperation(value = "注册", notes = "注册")
 	@RequestMapping(value = "/ajaxRegister", method = RequestMethod.POST)
 	@ResponseBody
 	public Map<String, Object> submitRegister(String username, String password, String mobile) {
