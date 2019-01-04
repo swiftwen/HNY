@@ -7,7 +7,7 @@ import java.io.InputStream;
 import java.util.HashMap;
 import java.util.Map;
 
-import org.activiti.engine.RepositoryService;
+import org.activiti.engine.task.Task;
 import org.apache.commons.io.FileUtils;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
@@ -46,6 +46,9 @@ public class ProcessDefineController {
 	@Autowired
 	private  ActivitiConfig activitiConfig;
 	
+    @Autowired
+    private WorkFlowService workFlowService;
+
 	@PostMapping("/deployProcess")
 	@SystemControllerLog(value = "部署流程文件")
 	@ApiOperation(value = "部署流程文件", httpMethod = "POST", notes = "200: 发送成功")
@@ -62,4 +65,19 @@ public class ProcessDefineController {
 		map.put("httpCode", "200");
 		return map;
 	}
+
+    @PostMapping("/startProcess")
+    @SystemControllerLog(value = "启动流程")
+    @ApiOperation(value = "启动流程", httpMethod = "POST", notes = "200: 发送成功")
+    public Object startProcess(@ApiParam(value = "流程key值", required = true) @RequestParam String processKey)
+            throws IOException {
+        String processInstanceId = workFlowService.startWorkFlowProcess(processKey, "weiye", "1234554321", null, null);
+        activitiConfig.taskService().createTaskQuery().list();
+        Task task = activitiConfig.taskService().createTaskQuery().processInstanceId(processInstanceId).singleResult();
+        activitiConfig.taskService().complete(task.getId());
+        Map<String, Object> map = new HashMap<String, Object>();
+        map.put("httpCode", "200");
+        return map;
+    }
+
 }
