@@ -2,7 +2,9 @@ package com.weiye.workflow.service;
 
 import java.util.Map;
 
+import org.activiti.engine.ManagementService;
 import org.activiti.engine.TaskService;
+import org.activiti.engine.runtime.Job;
 import org.activiti.engine.runtime.ProcessInstance;
 import org.activiti.engine.task.Task;
 import org.apache.commons.lang.StringUtils;
@@ -81,6 +83,24 @@ public class WorkFlowService  {
             taskService.complete(taskId, variables);
         } else {
             taskService.complete(taskId);
+        }
+    }
+
+    /**
+     * 执行异常案件
+     * 
+     * @param processInstanceId
+     */
+    public void resolveException(String processInstanceId) {
+        ManagementService managementService = activitiConfig.managementService();
+        Job job = managementService.createJobQuery().withException()
+                .processInstanceId(processInstanceId).singleResult();
+        if (job != null) {
+            try {
+                managementService.executeJob(job.getId());
+            } catch (Exception e) {
+                throw new RuntimeException("执行异常失败，请人工排查！");
+            }
         }
     }
 }

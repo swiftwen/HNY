@@ -3,6 +3,7 @@ package com.weiye.config;
 import javax.sql.DataSource;
 
 import org.activiti.engine.IdentityService;
+import org.activiti.engine.ManagementService;
 import org.activiti.engine.ProcessEngine;
 import org.activiti.engine.ProcessEngineConfiguration;
 import org.activiti.engine.RepositoryService;
@@ -13,6 +14,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
 import org.springframework.core.io.support.ResourcePatternResolver;
+
 
 /**
  * 使用Java类完成配置文件
@@ -62,6 +64,11 @@ public class ActivitiConfig {
     @Bean
     public IdentityService identityService() {
         return processEngine().getIdentityService();
+    }
+
+    @Bean
+    public ManagementService managementService() {
+        return processEngine().getManagementService();
     }
 
     /**
