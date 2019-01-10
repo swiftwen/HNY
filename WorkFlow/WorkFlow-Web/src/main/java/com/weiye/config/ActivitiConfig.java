@@ -37,7 +37,9 @@ public class ActivitiConfig {
         StandaloneProcessEngineConfiguration configuration = new StandaloneProcessEngineConfiguration();
         configuration.setDataSource(dataSource);
         configuration.setDatabaseSchemaUpdate(ProcessEngineConfiguration.DB_SCHEMA_UPDATE_TRUE);
-        configuration.setAsyncExecutorActivate(false);
+        configuration.setAsyncExecutorActivate(true);
+        configuration.setAsyncExecutorAsyncJobLockTimeInMillis(0);
+        configuration.setAsyncExecutorMaxPoolSize(10);// 线程池最大数量
         return configuration;
     }
     
