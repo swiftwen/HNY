@@ -10,6 +10,7 @@ import org.activiti.engine.RepositoryService;
 import org.activiti.engine.RuntimeService;
 import org.activiti.engine.TaskService;
 import org.activiti.engine.impl.cfg.StandaloneProcessEngineConfiguration;
+import org.activiti.engine.impl.jobexecutor.DefaultJobExecutor;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
@@ -23,13 +24,15 @@ import org.springframework.core.io.support.ResourcePatternResolver;
 @Configuration
 public class ActivitiConfig {
 
-	@Autowired
+    @Autowired
     private DataSource dataSource;
+
     @Autowired
     private ResourcePatternResolver resourceLoader;
-    
+
     /**
      * 初始化配置，将创建28张表
+     * 
      * @return
      */
     @Bean
@@ -37,12 +40,22 @@ public class ActivitiConfig {
         StandaloneProcessEngineConfiguration configuration = new StandaloneProcessEngineConfiguration();
         configuration.setDataSource(dataSource);
         configuration.setDatabaseSchemaUpdate(ProcessEngineConfiguration.DB_SCHEMA_UPDATE_TRUE);
-        configuration.setAsyncExecutorActivate(true);
-        configuration.setAsyncExecutorAsyncJobLockTimeInMillis(0);
-        configuration.setAsyncExecutorMaxPoolSize(10);// 线程池最大数量
+        // configuration.setAsyncExecutorActivate(true);
+        // configuration.setAsyncExecutorAsyncJobLockTimeInMillis(0);
+        // configuration.setAsyncExecutorMaxPoolSize(10);// 线程池最大数量
+        // configuration.setAsyncExecutorCorePoolSize(3);
+        // configuration.setAsyncExecutorThreadPoolQueueSize(3);
+        configuration.setJobExecutorActivate(true);
+        configuration.setProcessDefinitionCacheLimit(10);
+        DefaultJobExecutor jobExecutor = new DefaultJobExecutor();
+        jobExecutor.setQueueSize(3);
+        jobExecutor.setCorePoolSize(3);
+        jobExecutor.setMaxPoolSize(10);
+        jobExecutor.setLockTimeInMillis(0);
+        configuration.setJobExecutor(jobExecutor);
         return configuration;
     }
-    
+
     @Bean
     public ProcessEngine processEngine() {
         return processEngineConfiguration().buildProcessEngine();
@@ -62,7 +75,7 @@ public class ActivitiConfig {
     public TaskService taskService() {
         return processEngine().getTaskService();
     }
-    
+
     @Bean
     public IdentityService identityService() {
         return processEngine().getIdentityService();
@@ -75,13 +88,16 @@ public class ActivitiConfig {
 
     /**
      * 部署流程
-     * @throws IOException 
+     * 
+     * @throws IOException
      */
-//    @PostConstruct
-//    public void initProcess() throws IOException {
-//        DeploymentBuilder deploymentBuilder= repositoryService().createDeployment();
-////        Resource resource = resourceLoader.getResource("classpath:/processes/EceProvinceProcess.bpmn");
-////        deploymentBuilder .enableDuplicateFiltering().addInputStream(resource.getFilename(), resource.getInputStream()).name("deploymentTest").deploy();
-//        deploymentBuilder .enableDuplicateFiltering().addClasspathResource("TestProcess.bpmn").name("deploymentTest").deploy();
+    // @PostConstruct
+    // public void initProcess() throws IOException {
+    // DeploymentBuilder deploymentBuilder= repositoryService().createDeployment();
+    //// Resource resource = resourceLoader.getResource("classpath:/processes/EceProvinceProcess.bpmn");
+    //// deploymentBuilder .enableDuplicateFiltering().addInputStream(resource.getFilename(),
+    // resource.getInputStream()).name("deploymentTest").deploy();
+    // deploymentBuilder
+    // .enableDuplicateFiltering().addClasspathResource("TestProcess.bpmn").name("deploymentTest").deploy();
 //    }
 }

@@ -1,38 +1,45 @@
 package com.weiye.workflow.autoTask;
 
-import org.activiti.engine.delegate.DelegateExecution;
-import org.activiti.engine.delegate.JavaDelegate;
+import java.util.Date;
+
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.stereotype.Service;
 
-@Service
-public class AutoTaskTest implements JavaDelegate {
+import com.weiye.exception.ProcessException;
+
+@Service(value = "autoTaskTest")
+public class AutoTaskTest extends AbstractDelegateTask {
 
     private Logger logger = LoggerFactory.getLogger(getClass());
 
 
 
 
-    // @Override
-    // public void execute(WfpDelegateExecution execute) {
-    // String teString = "111";
-    // logger.info("测试执行的" + teString);
-    // // if ("1".equals("1")) {
-    // // throw new RuntimeException("测试报异常");
-    // // }
-    // execute.setVariable("rtfState", "reject");
-    // execute.setVariable("assignee", "weiyeAuto");
-    //
-    // }
-
-
     @Override
-    public void execute(DelegateExecution execution) {
+    public void execute(WfpDelegateExecution execute) {
         String teString = "111";
         logger.info("测试执行的" + teString);
-        execution.setVariable("rtfState", "reject");
-        execution.setVariable("assignee", "weiyeAuto");
+        if ("1".equals("1")) {
+            throw new ProcessException("测试报异常" + execute.getProcessInstanceId()
+                    + org.apache.http.client.utils.DateUtils.formatDate(new Date()));
+        }
+        execute.setVariable("rtfState", "reject");
+        execute.setVariable("assignee", "weiyeAuto");
+
     }
+
+
+    // @Override
+    // public void execute(DelegateExecution execution) {
+    // String teString = "111";
+    // logger.info("测试执行的" + teString);
+    // if ("1".equals("1")) {
+    // throw new ProcessException("测试报异常" + execution.getProcessInstanceId()
+    // + org.apache.http.client.utils.DateUtils.formatDate(new Date()));
+    // }
+    // execution.setVariable("rtfState", "reject");
+    // execution.setVariable("assignee", "weiyeAuto");
+    // }
 
 }
