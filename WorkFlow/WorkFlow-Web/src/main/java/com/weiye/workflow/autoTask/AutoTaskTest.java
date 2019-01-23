@@ -1,12 +1,8 @@
 package com.weiye.workflow.autoTask;
 
-import java.util.Date;
-
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.stereotype.Service;
-
-import com.weiye.exception.ProcessException;
 
 @Service(value = "autoTaskTest")
 public class AutoTaskTest extends AbstractDelegateTask {
@@ -20,11 +16,7 @@ public class AutoTaskTest extends AbstractDelegateTask {
     public void execute(WfpDelegateExecution execute) {
         String teString = "111";
         logger.info("测试执行的" + teString);
-        if ("1".equals("1")) {
-            throw new ProcessException("测试报异常" + execute.getProcessInstanceId()
-                    + org.apache.http.client.utils.DateUtils.formatDate(new Date()));
-        }
-        execute.setVariable("rtfState", "reject");
+        execute.setVariable("rtfState", "pass");
         execute.setVariable("assignee", "weiyeAuto");
 
     }

@@ -80,4 +80,14 @@ public class ProcessDefineController {
         return map;
     }
 
+    @PostMapping("/resolveException")
+    @SystemControllerLog(value = "解决异常流程")
+    @ApiOperation(value = "解决异常流程", httpMethod = "POST", notes = "200: 发送成功")
+    public Object resolveException(@ApiParam(value = "流程实例值", required = true) @RequestParam String processInstanceId)
+            throws IOException {
+        workFlowService.resolveException(processInstanceId);
+        Map<String, Object> map = new HashMap<String, Object>();
+        map.put("httpCode", "200");
+        return map;
+    }
 }

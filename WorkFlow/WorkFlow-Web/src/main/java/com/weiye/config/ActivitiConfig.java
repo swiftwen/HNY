@@ -10,7 +10,6 @@ import org.activiti.engine.RepositoryService;
 import org.activiti.engine.RuntimeService;
 import org.activiti.engine.TaskService;
 import org.activiti.engine.impl.cfg.StandaloneProcessEngineConfiguration;
-import org.activiti.engine.impl.jobexecutor.DefaultJobExecutor;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
@@ -46,13 +45,13 @@ public class ActivitiConfig {
         // configuration.setAsyncExecutorCorePoolSize(3);
         // configuration.setAsyncExecutorThreadPoolQueueSize(3);
         configuration.setJobExecutorActivate(true);
-        configuration.setProcessDefinitionCacheLimit(10);
-        DefaultJobExecutor jobExecutor = new DefaultJobExecutor();
-        jobExecutor.setQueueSize(3);
-        jobExecutor.setCorePoolSize(3);
-        jobExecutor.setMaxPoolSize(10);
-        jobExecutor.setLockTimeInMillis(0);
-        configuration.setJobExecutor(jobExecutor);
+        configuration.setProcessDefinitionCacheLimit(10);// 部署缓存配置，此属性的最佳值取决于所存储的流程定义的总量以及所有运行时流程实例在运行时实际使用的流程定义的数量。
+        // DefaultJobExecutor jobExecutor = new DefaultJobExecutor();
+        // jobExecutor.setQueueSize(3);
+        // jobExecutor.setCorePoolSize(3);
+        // jobExecutor.setMaxPoolSize(1);//多个线程池造成事务提交失败
+        // jobExecutor.setLockTimeInMillis(0);
+        // configuration.setJobExecutor(jobExecutor);// activiti6版本的异步自动节点在job里面没记录
         return configuration;
     }
 
