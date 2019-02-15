@@ -53,6 +53,8 @@ public class ActivitiConfig {
         // jobExecutor.setMaxPoolSize(1);//多个线程池造成事务提交失败
         // jobExecutor.setLockTimeInMillis(0);
         // configuration.setJobExecutor(jobExecutor);// activiti6版本的异步自动节点在job里面没记录
+        configuration.setActivityFontName("宋体");
+        configuration.setLabelFontName("宋体");
         return configuration;
     }
 
