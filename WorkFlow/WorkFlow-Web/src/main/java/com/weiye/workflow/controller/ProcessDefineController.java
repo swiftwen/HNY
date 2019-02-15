@@ -133,7 +133,7 @@ public class ProcessDefineController {
         // 高亮线路id集合
         List<String> highLightedFlows = getHighLightedFlows(definitionEntity, highLightedActivitList);
         if (!CollectionUtils.isEmpty(highLightedActivitList)) {
-        highLightedActivitis.add(highLightedActivitList.get(highLightedActivitis.size() - 1).getActivityId());
+            highLightedActivitis.add(highLightedActivitList.get(highLightedActivitList.size() - 1).getActivityId());
         }
         // for (HistoricActivityInstance tempActivity : highLightedActivitList) {
         // String activityId = tempActivity.getActivityId();
