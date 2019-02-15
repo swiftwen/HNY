@@ -2,6 +2,7 @@ package com.weiye.config;
 
 import javax.sql.DataSource;
 
+import org.activiti.engine.HistoryService;
 import org.activiti.engine.IdentityService;
 import org.activiti.engine.ManagementService;
 import org.activiti.engine.ProcessEngine;
@@ -63,6 +64,11 @@ public class ActivitiConfig {
     @Bean
     public RepositoryService repositoryService() {
         return processEngine().getRepositoryService();
+    }
+
+    @Bean
+    public HistoryService historyService() {
+        return processEngine().getHistoryService();
     }
 
     @Bean

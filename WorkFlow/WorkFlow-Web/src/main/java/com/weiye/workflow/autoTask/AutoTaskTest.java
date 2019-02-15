@@ -16,7 +16,7 @@ public class AutoTaskTest extends AbstractDelegateTask {
     public void execute(WfpDelegateExecution execute) {
         String teString = "111";
         logger.info("测试执行的" + teString);
-        execute.setVariable("rtfState", "pass");
+        execute.setVariable("rtfState", "reject");
         execute.setVariable("assignee", "weiyeAuto");
 
     }
