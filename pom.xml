@@ -32,6 +32,7 @@
 		<module>WorkFlow</module>
 		<module>Test</module>
 		<module>Cust-Rpc</module>
+		<module>Workflow-Rpc</module>
 	</modules>
 	<!--配置 -->
 	<properties>

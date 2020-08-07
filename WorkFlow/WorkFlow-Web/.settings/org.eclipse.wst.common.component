@@ -13,7 +13,7 @@
         <dependent-module archiveName="Common-Api-0.0.1-SNAPSHOT.jar" deploy-path="/WEB-INF/lib" handle="module:/resource/Common-Api/Common-Api">
             <dependency-type>uses</dependency-type>
         </dependent-module>
-        <dependent-module archiveName="WorkFlow-Provider-0.0.1-SNAPSHOT.jar" deploy-path="/WEB-INF/lib" handle="module:/resource/WorkFlow-Provider/WorkFlow-Provider">
+        <dependent-module archiveName="WorkFlow-Provider-0.0.1-SNAPSHOT.jar" deploy-path="/WEB-INF/lib" handle="module:/resource/WorkFlow1-Provider/WorkFlow1-Provider">
             <dependency-type>uses</dependency-type>
         </dependent-module>
         <dependent-module archiveName="Repo-Base-Provider-0.0.1-SNAPSHOT.jar" deploy-path="/WEB-INF/lib" handle="module:/resource/Repo-Base-Provider/Repo-Base-Provider">
@@ -22,7 +22,7 @@
         <dependent-module archiveName="Repo-Base-Api-0.0.1-SNAPSHOT.jar" deploy-path="/WEB-INF/lib" handle="module:/resource/Repo-Base-Api/Repo-Base-Api">
             <dependency-type>uses</dependency-type>
         </dependent-module>
-        <dependent-module archiveName="WorkFlow-Api-0.0.1-SNAPSHOT.jar" deploy-path="/WEB-INF/lib" handle="module:/resource/WorkFlow-Api/WorkFlow-Api">
+        <dependent-module archiveName="WorkFlow-Api-0.0.1-SNAPSHOT.jar" deploy-path="/WEB-INF/lib" handle="module:/resource/WorkFlow1-Api/WorkFlow1-Api">
             <dependency-type>uses</dependency-type>
         </dependent-module>
         <property name="context-root" value="WorkFlow-Web"/>
