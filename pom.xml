@@ -30,6 +30,8 @@
 		<module>Task-Rpc</module>
 		<module>Act-WorkFlow</module>
 		<module>WorkFlow</module>
+		<module>Test</module>
+		<module>Cust-Rpc</module>
 	</modules>
 	<!--配置 -->
 	<properties>

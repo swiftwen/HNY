@@ -1,5 +1,7 @@
 import java.util.ArrayList;
 import java.util.List;
+import java.util.concurrent.Executors;
+import java.util.concurrent.ThreadPoolExecutor;
 
 import org.junit.Test;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -47,5 +49,7 @@ public class UserTest extends BaseTest {
 		for(PermissionRespDto dto : list) {
 			System.out.println(dto);
 		}
+		//ThreadPoolExecutor executor = Executors.newFixedThreadPool(5);
+		
 	}
 }
